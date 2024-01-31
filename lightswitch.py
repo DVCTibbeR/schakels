@@ -9,11 +9,15 @@ def toggleLightSwitch():
 	global lightOn
 
 	if lightOn:
-		button.config(text="Switch light off")
-		window.config(bg="black")
-	else:
 		button.config(text="Switch light on")
+		window.config(bg="black")
+
+		print("light is off")
+	else:
+		button.config(text="Switch light off")
 		window.config(bg="yellow")
+
+		print("light is on")
 
 	lightOn = not lightOn
 
