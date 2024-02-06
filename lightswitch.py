@@ -3,25 +3,16 @@ import tkinter as tk
 window = tk.Tk()
 window.config(bg="black")
 
-lightOn = False
-
 def toggleLightSwitch():
-	global lightOn
+	button.config(text="Switch light on" if button.lightOn else "Switch light off")
+	window.config(bg="yellow" if button.lightOn else "black")
 
-	if lightOn:
-		button.config(text="Switch light on")
-		window.config(bg="black")
+	print("light is on" if button.lightOn else "light is off")
 
-		print("light is off")
-	else:
-		button.config(text="Switch light off")
-		window.config(bg="yellow")
-
-		print("light is on")
-
-	lightOn = not lightOn
+	button.lightOn = not button.lightOn
 
 button = tk.Button(text="Switch light on", bg="white", fg="black", command=toggleLightSwitch)
 button.pack(pady = 20, padx = 20)
+button.lightOn = False
 
 window.mainloop()
